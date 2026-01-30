@@ -1,0 +1,53 @@
+
+.arrow-animate {
+  animation: upDown 2s infinite ease-in-out;
+}
+
+@keyframes upDown {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+
+.icon-hover {
+  color: #adb5bd;
+  transition: all 0.35s ease;
+}
+
+.icon-hover:hover {
+  transform: translateY(-6px) scale(1.15);
+  filter: drop-shadow(0 0 10px currentColor);
+}
+
+/* individual colors */
+.whatsapp:hover { color: #25D366; }
+.instagram:hover { color: #E1306C; }
+.linkedin:hover { color: #0A66C2; }
+.github:hover { color: #ffffff; }
+
+
+
+
+.email-text {
+  color: #adb5bd;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.email-icon {
+  color: #adb5bd;
+  transition: all 0.3s ease;
+}
+
+.email-text:hover,
+.email-text:hover + .email-icon {
+  color: #0dcaf0;
+  text-shadow: 0 0 12px rgba(13, 202, 240, 0.8);
+}
+
+.email-text:hover ~ .email-icon,
+.email-icon:hover {
+  color: #0dcaf0;
+  filter: drop-shadow(0 0 10px #0dcaf0);
+}

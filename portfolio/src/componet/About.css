@@ -1,0 +1,157 @@
+.about-theme {
+  background: radial-gradient(circle, #f2f2f2, #e0e0e0);
+  padding: 55px 0;
+  overflow: hidden;
+
+  opacity: 0;
+  transform: translateY(90px);
+  transition: all 1.3s cubic-bezier(.19,1,.22,1);
+}
+
+.about-theme.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.section-line1 {
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, cyan, #00ffff);
+  margin: 8px auto 0;
+
+  transform: scaleX(0);
+  transform-origin: center;
+  opacity: 0;
+
+  box-shadow: 0 0 12px rgba(0,255,255,0.6);
+
+  transition:
+    transform 0.6s cubic-bezier(.19,1,.22,1),
+    opacity 0.4s ease;
+}
+
+/* 🔥 saare effects ke baad line aayegi */
+.about-theme.show .section-line1 {
+  transform: scaleX(1);
+  opacity: 1;
+  transition-delay: 1.4s; 
+}
+
+
+
+
+/* ---------- TEXT ---------- */
+.about-desc {
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+  font-size: 13px;
+}
+
+/* ---------- IMAGE ---------- */
+.about-img-rect {
+  width: 260px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+
+  opacity: 0;
+  transform: translateX(-160px) scale(0.85);
+}
+
+.about-theme.show .img-dynamic {
+  animation:
+    imgSlide 1.8s cubic-bezier(.19,1,.22,1) forwards,
+    imgFloat 6s ease-in-out infinite;
+}
+
+/* image entry */
+@keyframes imgSlide {
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* floating */
+@keyframes imgFloat {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+  100% { transform: translateY(0); }
+}
+
+/* ---------- TEXT ---------- */
+.text-dynamic {
+  opacity: 0;
+  transform: translateX(160px);
+}
+
+.about-theme.show .text-dynamic {
+  animation: textSlide 1.8s cubic-bezier(.19,1,.22,1) forwards;
+}
+
+@keyframes textSlide {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ---------- UNDERLINE (NAVBAR STYLE) ---------- */
+.about-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.about-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: cyan;
+  transition: width 0.4s ease;
+}
+
+.about-theme.show .about-underline::after,
+.about-underline:hover::after {
+  width: 100%;
+}
+
+/* ---------- BUTTON ---------- */
+.glow-btn {
+  background: transparent;
+  border: none;
+  margin-top: 15px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  position: relative;
+}
+
+.glow-btn::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: #000;
+  transition: 0.4s;
+  transform: translateX(-50%);
+}
+
+.glow-btn:hover::after {
+  width: 100%;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .about-img-rect {
+    width: 220px;
+    height: 280px;
+    margin-bottom: 25px;
+  }
+}
