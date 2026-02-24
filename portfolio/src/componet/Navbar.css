@@ -1,0 +1,70 @@
+
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  transition: all 0.4s ease;
+}
+
+
+.glass.scrolled {
+  background: rgba(0, 0, 0, 0.75);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
+}
+
+
+.brand {
+  color: white !important;
+  font-size: 22px;
+  animation: fadeDown 0.8s ease;
+}
+
+
+.link-anim {
+  color: white !important;
+  font-size: 17px;
+  position: relative;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.7);
+  transition: color 0.3s ease;
+}
+
+
+.link-anim::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background: cyan;
+  transition: width 0.3s ease;
+}
+
+.link-anim:hover::after {
+  width: 100%;
+}
+
+/* Hover glow */
+.link-anim:hover {
+  color: cyan !important;
+}
+
+/* Animation */
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile fix */
+@media (max-width: 991px) {
+  .navbar-nav {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 12px;
+  }
+}

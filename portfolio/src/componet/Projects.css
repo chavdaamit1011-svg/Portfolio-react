@@ -1,0 +1,173 @@
+
+.projects-theme {
+  background: radial-gradient(circle, #f2f2f2, #e0e0e0);
+  padding: 55px 0;
+  overflow: hidden;
+
+  opacity: 0;
+  transform: translateY(90px);
+  transition: all 1.3s cubic-bezier(.19,1,.22,1);
+}
+
+.projects-theme.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.projects-title {
+  text-align: center;
+}
+
+.projects-line {
+  width: 0;
+  height: 2px;
+  margin: 8px auto 0;
+  background: cyan;
+  box-shadow: 0 0 16px rgba(0,255,255,0.8);
+}
+
+.projects-theme.show .projects-line {
+  animation: drawLine 0.6s ease forwards;
+  animation-delay: 1.7s;
+}
+
+@keyframes drawLine {
+  to { width: 90px; }
+}
+
+.projects-desc {
+  max-width: 600px;
+  margin: 12px auto;
+  text-align: center;
+  font-size: 13px;
+  color: #444;
+}
+
+
+.project-card {
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(6px);
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+
+  opacity: 0;
+  transform: translateY(60px) scale(0.85);
+}
+
+/* entry animation */
+.projects-theme.show .project-card {
+  animation: projectIn 1.1s cubic-bezier(.19,1,.22,1) forwards;
+}
+
+@keyframes projectIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* stagger */
+.projects-theme.show .col-md-4:nth-child(1) .project-card { animation-delay: 0.3s; }
+.projects-theme.show .col-md-4:nth-child(2) .project-card { animation-delay: 0.5s; }
+.projects-theme.show .col-md-4:nth-child(3) .project-card { animation-delay: 0.7s; }
+
+
+.project-media {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+
+.project-body {
+  padding: 18px 18px 22px;
+}
+
+.project-title {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.project-desc {
+  font-size: 13px;
+  color: #555;
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+.project-footer {
+  margin-top: 14px;
+}
+
+
+.project-btn {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.project-btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: cyan;
+  box-shadow: 0 0 12px cyan;
+  transition: width 0.35s ease;
+}
+
+/* ===== HOVER EFFECT (SKILLS SAME) ===== */
+.project-card:hover {
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 0 0 35px rgba(0,255,255,0.7);
+  transition: 0.35s ease;
+}
+
+.project-card:hover .project-media {
+  transform: scale(1.08);
+}
+
+.project-card:hover .project-btn::after {
+  width: 100%;
+}
+
+/* ===== LOADING (SKILLS SAME) ===== */
+.project-loading {
+  position: fixed;
+  inset: 0;
+  background: rgba(255,255,255,0.7);
+  display: grid;
+  place-items: center;
+  z-index: 9999;
+}
+
+.loader-box {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(8px);
+  padding: 26px 42px;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.loader {
+  width: 36px;
+  height: 36px;
+  border: 4px solid rgba(0,0,0,0.2);
+  border-top-color: cyan;
+  border-radius: 50%;
+  display: inline-block;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

@@ -1,0 +1,149 @@
+
+.contact-theme {
+  background: radial-gradient(circle, #f2f2f2, #e0e0e0);
+  padding: 55px 0;
+  overflow: hidden;
+
+  opacity: 0;
+  transform: translateY(90px);
+  transition: all 1.3s cubic-bezier(.19,1,.22,1);
+}
+
+.contact-theme.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.contact-title {
+  text-align: center;
+}
+
+.contact-line {
+  width: 0;
+  height: 2px;
+  margin: 8px auto 0;
+  background: cyan;
+  box-shadow: 0 0 16px rgba(0,255,255,0.8);
+}
+
+.contact-theme.show .contact-line {
+  animation: drawLine 0.6s ease forwards;
+  animation-delay: 1.7s;
+}
+
+@keyframes drawLine {
+  to { width: 90px; }
+}
+
+.contact-desc {
+  max-width: 600px;
+  margin: 12px auto;
+  text-align: center;
+  font-size: 13px;
+  color: #444;
+}
+
+
+.contact-form {
+  margin-top: 20px;
+}
+
+
+.form-group {
+  position: relative;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #111;
+  background: transparent;
+  padding: 10px 0;
+  font-size: 14px;
+  outline: none;
+}
+
+.form-group textarea {
+  resize: none;
+}
+
+.form-group label {
+  position: absolute;
+  left: 0;
+  top: -10px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #777;
+}
+
+/* animated underline */
+.form-group .line {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: cyan;
+  box-shadow: 0 0 12px cyan;
+  transition: 0.4s ease;
+}
+
+.form-group input:focus ~ .line,
+.form-group textarea:focus ~ .line {
+  width: 100%;
+}
+
+
+.submit-btn {
+  background: none;
+  border: none;
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  position: relative;
+  padding: 6px 32px;
+  cursor: pointer;
+}
+
+.submit-btn span {
+  position: absolute;
+  top: 50%;
+  width: 26px;
+  height: 1.5px;
+  background: #111;
+}
+
+.submit-btn span:first-child {
+  left: 0;
+}
+
+.submit-btn span:last-child {
+  right: 0;
+}
+
+.submit-btn:hover {
+  color: cyan;
+}
+
+
+.fade-drop {
+  animation: dropFade 1.2s ease forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.3s;
+}
+
+@keyframes dropFade {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .contact-form {
+    padding: 0 10px;
+  }
+}
